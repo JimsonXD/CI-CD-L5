@@ -1,11 +1,11 @@
 import express, { Application } from "express";
-// import carValueRoutes from "./routes/carValueRoutes";
+import carValueRoutes from "./routes/carValueRoutes";
 // import riskRatingRoutes2 from "./routes/riskRatingRoutes2";
 // import riskRoutes from "./routes/riskRoutes";
 // import quoteRoutes from "./routes/quoteRoutes";
 // import carRecognitionRoutes from "./routes/carRecognitionRoutes";
-import carFinderRoute from "./routes/carFinderRoute";
-import carColourSearchRoute from "./routes/carColourSearchRoute";
+// import carFinderRoute from "./routes/carFinderRoute";
+// import carColourSearchRoute from "./routes/carColourSearchRoute";
 import bodyParser from "body-parser";
 import cors from "cors";
 import dotenv from "dotenv";
@@ -16,12 +16,12 @@ const app: Application = express();
 app.use(cors({ origin: "http://localhost:3000" }));
 app.use(bodyParser.json());
 
-// app.use("/api/carvalue", carValueRoutes);
+app.use("/api/carvalue", carValueRoutes);
 // app.use("/api/riskrating2", riskRatingRoutes2);
 // app.use("/api/riskrating", riskRoutes);
 // app.use("/api/premiumquote", quoteRoutes);
-app.use("/api/upload", carFinderRoute);
-app.use("/api/search/colour", carColourSearchRoute);
+// app.use("/api/upload", carFinderRoute);
+// app.use("/api/search/colour", carColourSearchRoute);
 
 const port: number = Number(process.env.PORT) || 8000;
 app.listen(port, () => {
